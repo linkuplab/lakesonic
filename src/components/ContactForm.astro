@@ -1,0 +1,195 @@
+---
+
+---
+<form class="contact-form">
+
+    <div class="contact-form__field">
+        <label for="name">
+            Ваше имя
+        </label>
+
+        <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Введите ваше имя"
+        />
+        <p class="error" id="name-error"></p>
+    </div>
+
+    <div class="contact-form__field">
+        <label for="email">
+            Email
+        </label>
+
+        <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="example@mail.com"
+        />
+        <p class="error" id="email-error"></p>
+    </div>
+
+    <div class="contact-form__field">
+        <label for="message">
+            Сообщение
+        </label>
+
+        <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Введите сообщение..."
+        ></textarea>
+        <p class="error" id="message-error"></p>
+    </div>
+
+    <button class="contact-form__button" type="submit">
+        Отправить
+    </button>
+
+    <p class="success-message" id="success-message"></p>
+
+</form>
+
+<style>
+
+    .contact-form {
+        max-width: 700px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .contact-form__field {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .contact-form label {
+        font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+
+        padding: .85rem 1rem;
+        font: inherit;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        transition:
+                border-color .2s ease,
+                box-shadow .2s ease;
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+        min-height: 140px;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+
+        outline: none;
+        border-color: #2f6fed;
+        box-shadow: 0 0 0 3px rgba(47,111,237,.15);
+    }
+
+    .contact-form__button {
+
+        align-self: flex-start;
+        padding: .8rem 1.8rem;
+        font: inherit;
+        color: white;
+        background: #2f6fed;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color .2s ease;
+    }
+
+    .contact-form__button:hover {
+        background: #2459c8;
+    }
+    .error {
+        color: #dc2626;
+        font-size: .9rem;
+        min-height: 1.2rem;
+    }
+    .success-message {
+        min-height: 1.5rem;
+        color: #15803d;
+        font-weight: 600;
+    }
+
+    @media (max-width:768px) {
+
+        .contact-form {
+            max-width: 100%;
+        }
+
+        .contact-form__button {
+            width: 100%;
+        }
+
+    }
+
+</style>
+
+<script>
+    const form = document.querySelector(".contact-form");
+    const nameInput = form?.querySelector("#name");
+    const emailInput = form?.querySelector("#email");
+    const messageInput = form?.querySelector("#message");
+    const nameError = form?.querySelector("#name-error");
+    const emailError = form?.querySelector("#email-error");
+    const messageError = form?.querySelector("#message-error");
+    const successMessage = form?.querySelector("#success-message");
+
+    form?.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        nameError.textContent = "";
+        emailError.textContent = "";
+        messageError.textContent = "";
+        successMessage.textContent = "";
+
+        let isValid = true;
+        if (nameInput.value.trim() === "") {
+            nameError.textContent = "Введите имя";
+            isValid = false;
+        }
+
+        // Получаем значение email
+        const email = emailInput.value.trim();
+
+        if (email === "") {
+
+            emailError.textContent = "Введите email";
+            isValid = false;
+
+        } else if (!email.includes("@")) {
+
+            emailError.textContent = "Некорректный email";
+            isValid = false;
+        }
+
+
+        if (messageInput.value.trim() === "") {
+            messageError.textContent = "Введите сообщение";
+            isValid = false;
+        }
+        if (isValid) {
+            successMessage.textContent =
+                "Спасибо! Ваше сообщение отправлено.";
+
+            form.reset();
+        }
+
+    });
+
+</script>
+

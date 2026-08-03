@@ -1,0 +1,33 @@
+---
+interface Props {
+    text?: string;
+}
+const { text = "KOT Astro Site" } = Astro.props as Props;
+---
+
+<a href="/" class="logo">
+    {text}
+</a>
+
+<style>
+    .logo {
+        display: inline-block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+    }
+
+    /* CR-2-3 */
+    .logo:hover {
+        opacity: 0.8;
+    }
+
+    /*
+    .logo:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 4px;
+    }
+    */
+</style>

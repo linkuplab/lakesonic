@@ -1,0 +1,39 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Button from "../../components/Button.astro";
+import ContactForm from "../../components/ContactForm.astro";
+---
+
+<MainLayout title="Контакты">
+
+    <section class="contacts">
+        <div class="container">
+
+            <h1>Контакты</h1>
+
+            <p>
+                Свяжитесь с нами через форму ниже.
+            </p>
+
+            <ContactForm />
+
+        </div>
+    </section>
+
+</MainLayout>
+
+<style>
+    .contacts {
+        padding-block: 4rem;
+    }
+
+    .contacts h1 {
+        margin-bottom: 1.5rem;
+    }
+
+    .contacts p {
+        margin-bottom: 2rem;
+    }
+
+
+</style>

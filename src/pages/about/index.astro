@@ -1,0 +1,39 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Button from "../../components/Button.astro";
+---
+
+<MainLayout title="О нас">
+
+    <section class="about">
+        <div class="container">
+            <h1>О нас</h1>
+
+            <p>
+                2 - Это вторая страница нашего учебного сайта.
+            </p>
+
+            <p>
+                Позже этот раздел станет намного больше....
+            </p>
+
+            <Button text="Наша команда" />
+
+        </div>
+    </section>
+
+</MainLayout>
+
+<style>
+    .about {
+        padding-block: 4rem;
+    }
+
+    .about h1 {
+        margin-bottom: 1.5rem;
+    }
+
+    .about p {
+        margin-bottom: 1rem;
+    }
+</style>

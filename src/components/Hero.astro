@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/hero-illustration.jpg";
+import Button from "./Button.astro";
+---
+
+<section class="hero">
+
+    <div class="container hero__container">
+
+        <div class="hero__content">
+            <h1>Изучаем Astro шаг за шагом</h1>
+
+            <p>
+                Создаём современный сайт, постепенно осваивая возможности Astro
+                и лучшие практики веб-разработки.
+            </p>
+
+            <Button text="Начать обучение" />
+        </div>
+
+        <div class="hero__image">
+            <Image
+                src={heroImage}
+                alt="Иллюстрация KOT"
+                width={500}
+                height={350}
+                loading="eager"
+            />
+        </div>
+
+    </div>  <!-- container -->
+
+</section>
+
+<style>
+    .hero {
+        padding: 4rem 0;
+    }
+
+    .hero__container {
+        display:flex;
+        align-items: center;
+        gap: 2rem;
+     }
+
+    .hero__content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;    /* Без этого кнопка могла бы растягиваться на всю ширину контейнера */
+    }
+
+    .hero__content h1 {
+        max-width:600px;
+    }
+    .hero__content p {
+        font-size: 1.2rem;
+        max-width: 42rem;
+    }
+
+    .hero__image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero__image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            padding: 3rem 0;
+        }
+        .hero__container {
+            flex-direction: column;
+            text-align: center;
+        }
+        .hero__content {
+            align-items: center;
+        }
+        .hero__content h1 {
+            font-size: 2.2rem;
+        }
+        .hero__content p {
+            font-size: 1rem;
+        }
+       .hero__image img {
+            width: 90%;
+            max-width: 400px;
+        }
+    }
+
+</style>

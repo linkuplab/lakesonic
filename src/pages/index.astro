@@ -1,0 +1,94 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+
+---
+
+<MainLayout title="Главная">
+
+		<Hero />
+
+		<section class="features">
+
+			<div class="container features__container">
+
+				<h2>Почему этот курс отличается?</h2>
+
+				<div class="features__grid">
+
+				<FeatureCard
+					icon="🚀"
+					title="Пошаговое обучение"
+					text="Каждая тема появляется именно тогда, когда она понадобится в нашем проекте."
+				/>
+
+				<FeatureCard
+					icon="⚡"
+					title="Современный Astro"
+					text="Мы изучаем возможности Astro на практике, создавая полноценный сайт.
+					Пока все тексты примерно одинаковые, этого почти не видно.
+					Обрати внимание, что структура карточки остаётся правильной, даже если содержимое меняется"
+
+				/>
+
+				<FeatureCard
+					icon="🎯"
+					title="Реальный проект"
+					text="Вместо отдельных упражнений мы постепенно создаём сайт, похожий на выбранный референс."
+				/>
+
+				<FeatureCard
+					icon="⚠️️"
+					title="KOT проект"
+					text="Обрати внимание, что сейчас главная страница начинает собираться как конструктор."
+				/>
+
+				</div>
+
+			</div>
+
+		</section>
+
+</MainLayout>
+
+<style>
+	.features {
+		background: var(--color-surface);
+	}
+	.features__container {
+		/* padding-top: 5rem;
+		padding-bottom: 5rem; */
+		padding-block: 5rem;
+
+	}
+	.features__grid {
+		display: grid;
+		/* grid-template-columns: 1fr 1fr 1fr; */  /* равносильно строке ниже */
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+	.features h2 {
+		text-align: center;
+		font-size: 2.25rem;
+		margin-bottom: 3rem;
+	}
+	@media (max-width: 992px) {		/* @media (width <= 992px) */
+		.features__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 768px) {		/* @media (width <= 768px)	*/
+		.features__container {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+
+		.features__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+
+</style>

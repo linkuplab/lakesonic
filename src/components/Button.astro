@@ -1,0 +1,29 @@
+---
+interface Props {
+    text: string;
+}
+
+const { text } = Astro.props as Props;
+---
+
+<button class="button">
+    { text }
+</button>
+
+<style>
+    .button {
+        /* padding: 12px 24px; */
+        padding: .75rem 1.5rem;
+        background: var(--color-primary);
+        font: inherit;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color .2s ease;
+    }
+
+    .button:hover {
+        background: var(--color-primary-hover);
+    }
+</style>
