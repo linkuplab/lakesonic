@@ -2,7 +2,9 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/Hero.astro";
 import FeatureCard from "../components/FeatureCard.astro";
+import { getCollection } from "astro:content";
 
+const features = await getCollection("features");
 ---
 
 <MainLayout title="Главная">
@@ -17,23 +19,15 @@ import FeatureCard from "../components/FeatureCard.astro";
 
 				<div class="features__grid">
 
-					<FeatureCard
-						icon="🚀"
-						title="Пошаговое обучение 1"
-						text="Каждая тема появляется именно тогда, когда она понадобится в нашем проекте."
-					/>
-
-					<FeatureCard
-						icon="⚡"
-						title="Современный Astro"
-						text="Мы изучаем возможности Astro на практике, создавая полноценный сайт."
-					/>
-
-					<FeatureCard
-						icon="🎯"
-						title="Реальный проект"
-						text="Вместо отдельных упражнений мы постепенно создаём сайт, похожий на выбранный референс."
-					/>
+					{
+						features.map((features) => (
+							<FeatureCard
+								icon={features.data.icon}
+								title={features.data.title}
+								text={features.data.text}
+							/>
+						))
+					}
 
 				</div>
 
@@ -48,10 +42,7 @@ import FeatureCard from "../components/FeatureCard.astro";
 		background: var(--color-surface);
 	}
 	.features__container {
-		/* padding-top: 5rem;
-		padding-bottom: 5rem; */
 		padding-block: 5rem;
-
 	}
 	.features__grid {
 		display: grid;
