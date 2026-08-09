@@ -1,5 +1,6 @@
 ---
-import { getCollection } from "astro:content";
+// import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 const products = await getCollection("products");
 ---
@@ -8,11 +9,17 @@ const products = await getCollection("products");
 
 <ul>
     {
-        products.map((product) => (
-                <li>
-                    <h2>{product.data.title}</h2>
-                    <p>{product.data.description}</p>
-                </li>
-        ))
+        products.map(async (product) => {
+            const { Content } = await render(product);
+
+            return (
+                    <li>
+                        <h2>{product.data.title}</h2>
+                        <p>{product.data.description}</p>
+
+                        <Content />
+                    </li>
+            );
+        })
     }
 </ul>
