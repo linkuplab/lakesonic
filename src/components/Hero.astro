@@ -1,5 +1,5 @@
 ---
-
+import { hero } from "../data/hero";
 import { Image } from "astro:assets";
 import heroImage from "../assets/hero-illustration.jpg";
 import Button from "./Button.astro";
@@ -10,11 +10,11 @@ import Button from "./Button.astro";
     <div class="container hero__container">
 
         <div class="hero__content">
-            <h1>This is title</h1>
+            <h1>{hero.title}</h1>
 
-            <p>AAAAAAAA</p>
+            <p>{hero.description}</p>
 
-            <Button text="Press me"  />
+            <Button text={hero.buttonText}  />
         </div>
 
         <div class="hero__image">
