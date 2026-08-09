@@ -10,7 +10,8 @@ const products = defineCollection({
 
     schema: z.object({
         title: z.string(),
-        description: z.string(),
+        text: z.string(),
+        icon: z.string(),
     }),
 });
 
