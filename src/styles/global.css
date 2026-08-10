@@ -1,8 +1,8 @@
 :root {
     --color-text: #222;
-    --color-bg: #fff;
+    --color-bg: #f7f8fc;
     --color-surface: #f8fafc;
-    /* --color-primary: #2563eb;*/
+
     --color-primary: #2f6fed;
     --color-primary-hover: #2459c8;
     --color-text-secondary: #4b5563;
@@ -51,8 +51,9 @@ button {
 
 /* ===== Layout ===== */
 .container {
-    padding: 0 2rem;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }
