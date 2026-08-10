@@ -10,6 +10,12 @@ import Button from "./Button.astro";
 
 <section class="hero">
 
+    <!-- Ambient glow orbs (CSS-animated, GPU-composited) -->
+    <!-- <div class="hero-glow-orb" aria-hidden="true"></div> -->
+    <div class="hero-glow-orb hero-glow-orb--center" aria-hidden="true"></div>
+    <div class="hero-glow-orb hero-glow-orb--left" aria-hidden="true"></div>
+    <div class="hero-glow-orb hero-glow-orb--right" aria-hidden="true"></div>
+
     <div class="container hero__container">
 
         <div class="hero__content">
@@ -61,7 +67,49 @@ import Button from "./Button.astro";
 <style>
 
     .hero {
-        padding: 5rem 0 3rem;
+        /* padding: 5rem 0 3rem; */
+        position: relative;
+        overflow: hidden;
+        background-color: var(--color-secondary);
+    }
+
+
+    .hero-glow-orb {
+        pointer-events: none;
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(80px);
+        animation: 6s ease-in-out infinite glow-pulse;
+    }
+
+    /* CENTER */
+    .hero-glow-orb--center {
+        left: 50%;
+        top: -120px;
+        width: 700px;
+        height: 480px;
+        transform: translateX(-50%);
+        background-color: oklab(72.337% 0.144624 0.0955623 / 0.2);
+    }
+
+    /* LEFT */
+    .hero-glow-orb--left {
+        left: 10%;
+        top: 40%;
+        width: 300px;
+        height: 300px;
+        background-color: rgb(91 92 246 / 15%);
+        animation-delay: 2s;
+    }
+
+    /* RIGHT */
+    .hero-glow-orb--right {
+        right: 8%;
+        top: 30%;
+        width: 250px;
+        height: 250px;
+        background-color: oklab(72.337% 0.144624 0.0955623 / 0.1);
+        animation-delay: 3.5s;
     }
 
     /* ===== Text ===== */
@@ -69,6 +117,8 @@ import Button from "./Button.astro";
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
+        z-index: 1;
     }
 
     .hero__content {
