@@ -94,10 +94,11 @@ import Button from "./Button.astro";
     /* LEFT */
     .hero-glow-orb--left {
         left: 10%;
-        top: 40%;
+        top: 10%;
         width: 300px;
         height: 300px;
-        background-color: rgb(91 92 246 / 15%);
+    /*    background-color: rgb(91 92 246 / 15%);  */
+        background-color: oklab(56.7251% 0.0244541 -0.222707 / 0.15);
         animation-delay: 2s;
     }
 
@@ -170,13 +171,15 @@ import Button from "./Button.astro";
         z-index: 2;
         width: 960px;
         max-width: 100%;
-        overflow: hidden;
+        box-shadow: 0 -8px 80px rgba(255, 118, 89, 0.12);
     }
 
     .hero__dashboard img {
         display: block;
         width: 960px;
         height: auto;
+        border-radius: 20px 20px 0 0;
+
     }
 
     .hero__element {
