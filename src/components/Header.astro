@@ -15,8 +15,12 @@ import Navigation from "./Navigation.astro";
 
 <style>
     .site-header {
-        border-bottom: 1px solid var(--color-border);
-        background: var(--color-bg);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--color-secondary);
     }
 
     .header__inner {

@@ -1,33 +1,23 @@
 ---
-interface Props {
-    text?: string;
-}
-const { text = "KOT Astro Site" } = Astro.props as Props;
+import logo from "../assets/logo/brand-logo-white.webp";
 ---
-
-<a href="/" class="logo">
-    {text}
+<a href="/" class="logo" aria-label="Lakesonic home">
+    <img src={logo} alt="Lakesonic" />
 </a>
 
 <style>
     .logo {
-        display: inline-block;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--color-primary);
-        text-decoration: none;
-        transition: opacity 0.3s ease;
+        display: block;
+        flex: none;
     }
 
-    /* CR-2-3 */
+    .logo img {
+        display: block;
+        width: 201px;
+        height: auto;
+    }
+
     .logo:hover {
         opacity: 0.8;
     }
-
-    /*
-    .logo:focus-visible {
-        outline: 2px solid var(--color-primary);
-        outline-offset: 4px;
-    }
-    */
 </style>
